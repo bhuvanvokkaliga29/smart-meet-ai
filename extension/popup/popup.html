@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartMeet AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <span class="logo">SmartMeet AI</span>
+      <span class="version">v2.1</span>
+    </div>
+
+    <div class="status-bar">
+      <span id="statusDot" class="status-dot"></span>
+      <span id="statusText" class="status-text">Ready to Capture</span>
+    </div>
+
+    <div id="tabInfo" class="tab-info">Detecting meeting tab...</div>
+
+    <div id="captionCount" class="caption-count" style="display: none;">
+      📝 <span id="lineCount">0</span> caption lines captured
+    </div>
+
+    <div class="instructions">
+      <p><strong>Important:</strong> Turn on <strong>Captions (CC)</strong> in your Google Meet for best results!</p>
+    </div>
+
+    <button id="toggleBtn" type="button" class="btn btn-primary">Start Tab Capture</button>
+
+    <div class="footer">
+      <a href="http://127.0.0.1:3000" target="_blank">Open Dashboard →</a>
+    </div>
+  </div>
+
+  <!-- Script MUST be at bottom, after all DOM elements -->
+  <script src="popup.js"></script>
+</body>
+</html>
