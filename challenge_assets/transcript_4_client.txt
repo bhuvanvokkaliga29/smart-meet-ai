@@ -1,0 +1,8 @@
+Amanda (Sales Director): Thanks for joining the call, Mr. Davis. As we discussed, our enterprise plan includes 24/7 support.
+Mr. Davis (Client): That sounds great. However, we need a custom SLA for the API uptime. Can you provide a draft for that?
+Amanda: Absolutely. I will draft the custom SLA agreement and send it over to you by Thursday.
+Mr. Davis: Excellent. Also, my engineering team had a question about the SOC2 compliance report. They couldn't find the latest version on your site.
+Amanda: Ah, I apologize. The latest report was just finalized yesterday. I'll ask our security lead, Tom, to send you the SOC2 report today.
+Mr. Davis: Perfect. If the SLA looks good, we will sign the contract on Friday.
+Amanda: One potential blocker is that our legal team is quite backed up this week. I'll try to expedite the SLA review on our end.
+Mr. Davis: Please do. Let's touch base on Friday.

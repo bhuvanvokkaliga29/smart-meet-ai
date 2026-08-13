@@ -1,0 +1,68 @@
+{
+  "meeting_id": "challenge_demo",
+  "summary": "Team aligned on Q3 deliverables for the new user dashboard, assigning backend optimization and frontend integration tasks.",
+  "decisions": [
+    "Build a fallback mechanism for the third-party analytics provider"
+  ],
+  "risks": [
+    "Third-party analytics provider API has been unstable lately"
+  ],
+  "completed_work": [
+    "Emily completed the accessibility audit for the current site yesterday"
+  ],
+  "commitments": [
+    {
+      "action": "Review and optimize the database queries",
+      "owner_candidate": "John",
+      "delegator": null,
+      "deadline_phrase": "by this Friday",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "John: I will review and optimize the queries by this Friday.",
+      "confidence": 0.98,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Implement React components and finish frontend integration",
+      "owner_candidate": "Emily",
+      "delegator": null,
+      "deadline_phrase": "by next Wednesday",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Emily: I'll finish the frontend integration by next Wednesday.",
+      "confidence": 0.99,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Email Marketing to get design approval",
+      "owner_candidate": "Sarah",
+      "delegator": null,
+      "deadline_phrase": "by tomorrow",
+      "condition": "before we launch",
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Sarah: I will email Marketing to get their approval before we launch. I'll do that by tomorrow.",
+      "confidence": 0.95,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Make sure the fallback mechanism is included in backend updates",
+      "owner_candidate": "John",
+      "delegator": "Sarah",
+      "deadline_phrase": null,
+      "condition": null,
+      "commitment_type": "delegated_commitment",
+      "evidence_transcript": "Sarah: John, please make sure the fallback is included in your backend updates.",
+      "confidence": 0.96,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    }
+  ],
+  "speakers_detected": ["Sarah", "John", "Emily"],
+  "total_segments_processed": 12,
+  "model_provider": "gemini",
+  "model_name": "gemini-2.5-flash",
+  "total_latency_ms": 1145.2
+}

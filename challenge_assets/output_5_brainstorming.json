@@ -1,0 +1,57 @@
+{
+  "meeting_id": "challenge_demo_5",
+  "summary": "Brainstorming session for the new mobile app onboarding. The team agreed to reduce the flow to three screens and retain the classic Midnight Navy color palette.",
+  "decisions": [
+    "Reduce the mobile app onboarding flow from five screens to three screens",
+    "Stick with the classic 'Midnight Navy' color scheme instead of changing to 'Ocean Blue'"
+  ],
+  "risks": [
+    "iOS development team is focused on bug fixes and may not start the new onboarding until next month"
+  ],
+  "completed_work": [
+    "Chris finished the icon pack for the settings menu yesterday"
+  ],
+  "commitments": [
+    {
+      "action": "Sketch out the three-screen onboarding flow wireframes",
+      "owner_candidate": "Chris",
+      "delegator": null,
+      "deadline_phrase": "by tomorrow",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Chris: Yep, I'll sketch out the three-screen onboarding flow by tomorrow.",
+      "confidence": 0.99,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Inform the marketing team about the color decision",
+      "owner_candidate": "Jessica",
+      "delegator": null,
+      "deadline_phrase": "this afternoon",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Jessica: I'll inform the marketing team about the color decision this afternoon.",
+      "confidence": 0.98,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Ping the iOS lead to get a timeline estimate",
+      "owner_candidate": "Chris",
+      "delegator": null,
+      "deadline_phrase": "whenever he replies",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Chris: I will ping the iOS lead to get a timeline estimate. No strict deadline on that, just whenever he replies.",
+      "confidence": 0.95,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    }
+  ],
+  "speakers_detected": ["Chris", "Jessica"],
+  "total_segments_processed": 10,
+  "model_provider": "gemini",
+  "model_name": "gemini-2.5-flash",
+  "total_latency_ms": 1089.1
+}
