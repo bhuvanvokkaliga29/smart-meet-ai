@@ -1,0 +1,4 @@
+# Ignore frontend and extension directories in GitHub language statistics
+# This ensures the repository is correctly classified as a Python AI Agent project
+frontend/** linguist-vendored
+extension/** linguist-vendored
