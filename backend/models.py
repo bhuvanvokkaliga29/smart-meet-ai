@@ -60,6 +60,14 @@ class ValidatedTaskList(BaseModel):
     overall_confidence: float
     tasks: List[EnrichedTask]
 
+class EnrichedTaskList(BaseModel):
+    tasks: List[EnrichedTask]
+
+class IntentOutput(BaseModel):
+    intent: str
+    confidence: float
+
+
 class ApproveTasksRequest(BaseModel):
     meeting_id: str
     tasks: List[EnrichedTask]

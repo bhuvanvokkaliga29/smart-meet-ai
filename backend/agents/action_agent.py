@@ -1,82 +1,41 @@
-import re
-from typing import List, Tuple, Optional
-from models import RawTaskList, RawTask, SpeechOutput
-from agents.intent_classifier import IntentClassifier
+from models import RawTaskList, SpeechOutput
+from llm_provider import gemini
+import structlog
+
+logger = structlog.get_logger(__name__)
 
 class ActionAgent:
-    """Stage 2 Action Extractor Agent:
-    Uses Stage 1 IntentClassifier to filter out non-action clauses (Decisions, Completed, Risks, Information, Questions).
-    Extracts high-recall technical action items and separates conditional triggers.
+    """Stage 2 Action Extractor Agent (LLM-Powered):
+    Extracts high-recall technical action items and separates conditional triggers
+    directly from the transcript using Gemini.
     """
 
     def process(self, speech_data: SpeechOutput) -> RawTaskList:
         transcript = speech_data.transcript
-        lines = [l.strip() for l in transcript.split('\n') if l.strip()]
-        tasks: List[RawTask] = []
-        seen_tasks = set()
-
-        for line in lines:
-            speaker = "Participant"
-            text = line
-            if ":" in line:
-                parts = line.split(":", 1)
-                speaker = parts[0].strip()
-                text = parts[1].strip()
-
-            # Split utterance into sentences/clauses
-            clauses = re.split(r'[\.\!\?\;\n]|\b(?:then|and|also|furthermore)\b', text, flags=re.IGNORECASE)
-
-            for clause in clauses:
-                c_clean = clause.strip()
-                if len(c_clean) < 5:
-                    continue
-
-                # Stage 1: Intent Classification
-                intent, confidence = IntentClassifier.classify(c_clean)
-
-                # ONLY process Stage 2 if Stage 1 intent is 'Action'
-                if intent == "Action":
-                    task_title, condition_str = self._extract_action_details(c_clean)
-
-                    if task_title:
-                        norm_key = task_title.lower()
-                        if norm_key not in seen_tasks:
-                            seen_tasks.add(norm_key)
-                            tasks.append(RawTask(
-                                task=task_title,
-                                context=f"{speaker}: {c_clean}",
-                                speaker=speaker,
-                                condition=condition_str,
-                                item_type="Action Item",
-                                confidence=confidence
-                            ))
-
-        return RawTaskList(tasks=tasks[:12])
-
-    def _extract_action_details(self, clause: str) -> Tuple[str, Optional[str]]:
-        """Stage 2: Formats task title and extracts conditional clause ('If [condition], [action]')."""
-        condition_str = None
         
-        # 1. Condition extraction
-        cond_match = re.search(r'^\s*if\s+(.*?),\s*(.*)$', clause, flags=re.IGNORECASE)
-        if cond_match:
-            raw_cond = cond_match.group(1).strip()
-            raw_action = cond_match.group(2).strip()
-            condition_str = f"If {raw_cond}"
-            clause = raw_action
+        if not transcript.strip() or transcript == "No transcript recorded.":
+            return RawTaskList(tasks=[])
 
-        # 2. Clean task title formatting
-        cleaned = re.sub(r'^\s*[A-Z][a-zA-B0-9]{2,20}\s*,\s*(?:please|can you|could you|make sure|finish|improve)?\s*', '', clause, flags=re.IGNORECASE).strip()
-        cleaned = re.sub(r'^(?:we need to|i think we should|make sure to|please|i will|i\'ll|you should|we have to|our task is to)\s*', '', cleaned, flags=re.IGNORECASE).strip()
-        cleaned = re.sub(r'\b(?:fucking|bitch|shit|crap|damn)\b', '', cleaned, flags=re.IGNORECASE).strip()
-        cleaned = re.sub(r'\s+', ' ', cleaned).strip()
-
-        if len(cleaned) < 4:
-            return "", None
-
-        task_title = cleaned[0].upper() + cleaned[1:]
-
-        if len(task_title) > 90:
-            task_title = task_title[:87] + "..."
-
-        return task_title, condition_str
+        prompt = f"""
+        You are an expert AI Action Item Extractor.
+        Analyze the following meeting transcript and extract all Action Items.
+        
+        Rules:
+        1. Extract clear, actionable tasks or directives.
+        2. Ignore status updates, completed work, or generic decisions.
+        3. If the task has a conditional trigger ("if X, then do Y"), extract "If X" into the condition field.
+        4. Include the exact context/quote where this task was mentioned.
+        5. Provide a confidence score for each extracted task (0.0 to 1.0).
+        6. Set the item_type strictly to "Action Item".
+        7. Identify the speaker who mentioned the task if possible, otherwise use "Meeting".
+        
+        Transcript:
+        {transcript}
+        """
+        
+        try:
+            output, _, _ = gemini.generate_structured(prompt, RawTaskList)
+            return output
+        except Exception as e:
+            logger.error("action_agent_llm_error", error=str(e))
+            return RawTaskList(tasks=[])
