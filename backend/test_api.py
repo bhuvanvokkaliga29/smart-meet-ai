@@ -23,6 +23,37 @@ def client():
     from main import app
     return TestClient(app)
 
+@pytest.fixture(autouse=True)
+def mock_gemini():
+    from models import SpeechOutput, SummaryOutput, RawTaskList, RawTask, IntentOutput, EnrichedTaskList, EnrichedTask, ValidatedTaskList, CrossMeetingRecap
+    with patch("llm_provider.gemini.generate_structured") as mock_gen:
+        def side_effect(prompt, schema):
+            if schema == SpeechOutput:
+                return SpeechOutput(transcript="Mocked transcript", speakers=["Rahul", "Alex"], confidence=0.9), "mock", 100
+            elif schema == SummaryOutput:
+                return SummaryOutput(summary="Mocked summary", decisions=["dec1"], risks=[], completed_work=[], confidence=0.9), "mock", 100
+            elif schema == RawTaskList:
+                return RawTaskList(tasks=[RawTask(task="Mock task", speaker="Alex", confidence=0.9)]), "mock", 100
+            elif schema == IntentOutput:
+                if "Good morning" in prompt or "hello" in prompt.lower():
+                    return IntentOutput(intent="Discussion", confidence=0.9), "mock", 100
+                return IntentOutput(intent="Action", confidence=0.9), "mock", 100
+            elif schema == EnrichedTaskList:
+                if "Priority Assessment" in prompt:
+                    return EnrichedTaskList(tasks=[EnrichedTask(id="t-mock", task="Deploy production server immediately", owner="Alex", priority="High", confidence=0.9)]), "mock", 100
+                elif "Deadline Inference" in prompt:
+                    return EnrichedTaskList(tasks=[EnrichedTask(id="t-mock", task="Finish report by Friday", owner="Alex", deadline="2026-08-14", confidence=0.9)]), "mock", 100
+                else:
+                    return EnrichedTaskList(tasks=[EnrichedTask(id="t-mock", task="Mock task", owner="Rahul", assigned_by="Alex", confidence=0.9)]), "mock", 100
+            elif schema == ValidatedTaskList:
+                return ValidatedTaskList(status="VALID", overall_confidence=0.9, tasks=[EnrichedTask(id="t-mock", task="Mock task", owner="Rahul", assigned_by="Alex", priority="High", deadline="2026-08-14", confidence=0.9)]), "mock", 100
+            elif schema == CrossMeetingRecap:
+                return CrossMeetingRecap(total_previous_tasks=1, completed_count=0, pending_count=1, blocked_count=0, execution_rate=0.0, status_recap_text="Mock"), "mock", 100
+            return schema(), "mock", 100
+        mock_gen.side_effect = side_effect
+        yield mock_gen
+
+
 
 @pytest.fixture
 def sample_transcript():
