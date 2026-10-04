@@ -8,22 +8,28 @@
 **Transform unorganized meeting audio & transcripts into verified decisions, delegated owners, tracked execution, and cross-meeting organizational memory.**
 
 <p align="center">
-  <a href="#-1-click-deploy-to-vercel"><strong>🚀 Deploy to Vercel</strong></a> •
-  <a href="#-system-architecture"><strong>🏛️ Architecture</strong></a> •
-  <a href="#-9-agent-intelligence-swarm"><strong>🤖 Agent Swarm</strong></a> •
-  <a href="#-live-demo--walkthrough"><strong>✨ Live Demo</strong></a> •
-  <a href="#-local-development"><strong>💻 Quickstart</strong></a>
+  <a href="https://smartmeet-ai-alpha.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_LIVE_PRODUCTION_DEMO-smartmeet--ai--alpha.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white&labelColor=00DC82" alt="Live Demo on Vercel" height="38" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://smartmeet-ai-alpha.vercel.app/" target="_blank"><strong>🌐 Live Demo App</strong></a> •
+  <a href="#3-system-architecture"><strong>🏛️ Architecture</strong></a> •
+  <a href="#4-multi-agent-intelligence-swarm-9-agents"><strong>🤖 Agent Swarm</strong></a> •
+  <a href="#8--1-click-deploy-to-vercel"><strong>🚀 Deploy to Vercel</strong></a> •
+  <a href="#10-local-development--setup"><strong>💻 Quickstart</strong></a>
 </p>
 
 ---
 
 <p align="center">
-  <a href="https://vercel.com/new/clone?repository-url=https://github.com/bhuvanvokkaliga29/smart-meet-ai">
-    <img src="https://vercel.com/button" alt="Deploy with Vercel" height="34" />
+  <a href="https://smartmeet-ai-alpha.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/Vercel_Live-Active-success?style=flat-square&logo=vercel" alt="Vercel Live" />
   </a>
   &nbsp;&nbsp;
-  <a href="https://render.com">
-    <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="34" />
+  <a href="https://vercel.com/new/clone?repository-url=https://github.com/bhuvanvokkaliga29/smart-meet-ai">
+    <img src="https://vercel.com/button" alt="Deploy with Vercel" height="26" />
   </a>
 </p>
 
@@ -337,6 +343,9 @@ sequenceDiagram
 ---
 
 ## 8. 🚀 1-Click Deploy to Vercel
+
+> [!IMPORTANT]
+> **Live Deployed Application**: Experience the full live production build right now at **[https://smartmeet-ai-alpha.vercel.app/](https://smartmeet-ai-alpha.vercel.app/)**.
 
 The frontend is fully optimized for continuous edge deployment on **Vercel** with zero-config builds, automatic SPA routing, and API proxy rewrites.
 
