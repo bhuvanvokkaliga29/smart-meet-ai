@@ -1,0 +1,70 @@
+{
+  "meeting_id": "challenge_demo",
+  "summary": "Daily standup covering staging migration tests, identifying a critical bug in international refunds, and planning database/storage fixes.",
+  "decisions": [
+    "Block the release until the international refund bug is fixed"
+  ],
+  "risks": [
+    "Critical bug where refund process fails on international credit cards",
+    "Test environment is running out of storage space"
+  ],
+  "completed_work": [
+    "David finished migration scripts for the new database schema yesterday",
+    "Rachel wrote automated tests for the payment gateway"
+  ],
+  "commitments": [
+    {
+      "action": "Provision production replica database credentials",
+      "owner_candidate": "Mike",
+      "delegator": "David",
+      "deadline_phrase": "by noon today",
+      "condition": null,
+      "commitment_type": "delegated_commitment",
+      "evidence_transcript": "Mike: Sure, I'll provision the database credentials by noon today.",
+      "confidence": 0.99,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Debug the international refund issue",
+      "owner_candidate": "David",
+      "delegator": null,
+      "deadline_phrase": "by tomorrow morning",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "David: I can look into that. I'll debug the refund issue by tomorrow morning.",
+      "confidence": 0.98,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Re-run the test suite",
+      "owner_candidate": "Rachel",
+      "delegator": null,
+      "deadline_phrase": null,
+      "condition": "Once you push a fix",
+      "commitment_type": "conditional_commitment",
+      "evidence_transcript": "Rachel: Thanks. Once you push a fix, I'll re-run the test suite.",
+      "confidence": 0.95,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Clear the old logs to free up test environment storage",
+      "owner_candidate": "Mike",
+      "delegator": "Alex",
+      "deadline_phrase": "by end of day",
+      "condition": null,
+      "commitment_type": "delegated_commitment",
+      "evidence_transcript": "Mike: Will do. I'll clear the logs by end of day.",
+      "confidence": 0.97,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    }
+  ],
+  "speakers_detected": ["Alex", "David", "Mike", "Rachel"],
+  "total_segments_processed": 15,
+  "model_provider": "gemini",
+  "model_name": "gemini-2.5-flash",
+  "total_latency_ms": 1230.8
+}

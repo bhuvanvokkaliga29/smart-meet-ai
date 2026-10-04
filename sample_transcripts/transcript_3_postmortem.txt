@@ -1,0 +1,14 @@
+Sam (Customer Success): Welcome to the postmortem for the recent outage. Let's understand what happened and prevent it from happening again.
+Lisa (Lead Engineer): Last Thursday, the main database cluster ran out of connections during peak load. This caused the login service to time out for about 45 minutes.
+Sam: What was the root cause?
+Lisa: A new microservice was deployed that didn't use connection pooling. It just opened a new connection for every request.
+Sam: Okay, we definitely need to fix that. 
+Lisa: I will implement connection pooling on the new microservice by Monday.
+Sam: We also need better alerting. It took us 15 minutes to even realize there was a problem.
+Mark (Site Reliability): Agreed. I'm going to set up automated alerts for high database connection counts. I will finish the alerting setup by Wednesday.
+Sam: That works. We should also decide on our rollback policy. From now on, any deployment causing a spike in errors will be automatically rolled back.
+Lisa: That's a good decision. We'll update the CI/CD pipeline to reflect that. I can take that on. I'll update the deployment scripts to support auto-rollback by next Friday.
+Sam: Awesome. By the way, I wrote the incident report for our enterprise customers yesterday.
+Mark: Great. One risk we should watch out for is that the connection limit on the database might still be too low even with pooling, given our recent growth.
+Lisa: True. We'll monitor it closely after these fixes go out.
+Sam: Let's review the alerting setup next week. Thanks everyone.

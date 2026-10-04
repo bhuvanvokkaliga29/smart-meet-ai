@@ -1,0 +1,56 @@
+{
+  "meeting_id": "challenge_demo_4",
+  "summary": "Client meeting with Mr. Davis to discuss enterprise plan details. Agreed to provide a custom SLA and the latest SOC2 compliance report.",
+  "decisions": [
+    "Proceed with drafting a custom SLA for API uptime"
+  ],
+  "risks": [
+    "Legal team is backed up this week, which could delay the SLA review"
+  ],
+  "completed_work": [
+    "Latest SOC2 report was finalized yesterday"
+  ],
+  "commitments": [
+    {
+      "action": "Draft the custom SLA agreement and send it to the client",
+      "owner_candidate": "Amanda",
+      "delegator": null,
+      "deadline_phrase": "by Thursday",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Amanda: Absolutely. I will draft the custom SLA agreement and send it over to you by Thursday.",
+      "confidence": 0.99,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Send the SOC2 report to the client",
+      "owner_candidate": "Tom",
+      "delegator": "Amanda",
+      "deadline_phrase": "today",
+      "condition": null,
+      "commitment_type": "delegated_commitment",
+      "evidence_transcript": "Amanda: I'll ask our security lead, Tom, to send you the SOC2 report today.",
+      "confidence": 0.95,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Sign the contract",
+      "owner_candidate": "Mr. Davis",
+      "delegator": null,
+      "deadline_phrase": "on Friday",
+      "condition": "If the SLA looks good",
+      "commitment_type": "conditional_commitment",
+      "evidence_transcript": "Mr. Davis: Perfect. If the SLA looks good, we will sign the contract on Friday.",
+      "confidence": 0.98,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    }
+  ],
+  "speakers_detected": ["Amanda", "Mr. Davis"],
+  "total_segments_processed": 8,
+  "model_provider": "gemini",
+  "model_name": "gemini-2.5-flash",
+  "total_latency_ms": 945.2
+}

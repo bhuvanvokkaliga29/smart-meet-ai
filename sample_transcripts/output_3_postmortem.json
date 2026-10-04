@@ -1,0 +1,56 @@
+{
+  "meeting_id": "challenge_demo",
+  "summary": "Postmortem addressing Thursday's database connection outage. The team identified the root cause as a new microservice lacking connection pooling and agreed on auto-rollback policies.",
+  "decisions": [
+    "Any deployment causing a spike in errors will be automatically rolled back"
+  ],
+  "risks": [
+    "Connection limit on the database might still be too low given recent growth"
+  ],
+  "completed_work": [
+    "Sam wrote the incident report for our enterprise customers yesterday"
+  ],
+  "commitments": [
+    {
+      "action": "Implement connection pooling on the new microservice",
+      "owner_candidate": "Lisa",
+      "delegator": null,
+      "deadline_phrase": "by Monday",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Lisa: I will implement connection pooling on the new microservice by Monday.",
+      "confidence": 0.99,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Set up automated alerts for high database connection counts",
+      "owner_candidate": "Mark",
+      "delegator": null,
+      "deadline_phrase": "by Wednesday",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Mark: I'm going to set up automated alerts for high database connection counts. I will finish the alerting setup by Wednesday.",
+      "confidence": 0.98,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    },
+    {
+      "action": "Update the deployment scripts to support auto-rollback",
+      "owner_candidate": "Lisa",
+      "delegator": null,
+      "deadline_phrase": "by next Friday",
+      "condition": null,
+      "commitment_type": "self_commitment",
+      "evidence_transcript": "Lisa: I'll update the deployment scripts to support auto-rollback by next Friday.",
+      "confidence": 0.97,
+      "identity_confidence": 1.0,
+      "needs_confirmation": false
+    }
+  ],
+  "speakers_detected": ["Sam", "Lisa", "Mark"],
+  "total_segments_processed": 13,
+  "model_provider": "gemini",
+  "model_name": "gemini-2.5-flash",
+  "total_latency_ms": 1012.4
+}

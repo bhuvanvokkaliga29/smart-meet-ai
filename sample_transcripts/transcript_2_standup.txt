@@ -1,0 +1,16 @@
+Alex (Scrum Master): Let's do a quick standup. David, what's your status?
+David (Backend Developer): Yesterday I finished the migration scripts for the new database schema. Today, I am going to run the data validation tests in the staging environment.
+Alex: Any blockers?
+David: Yes, I need access to the production replica to test the full dataset. Mike, can you provision those credentials for me?
+Mike (DevOps): Sure, I'll provision the database credentials by noon today.
+David: Thanks. That's all for me.
+Alex: Okay. Rachel, you're up.
+Rachel (QA Engineer): I've been writing the automated tests for the payment gateway. I found a critical bug where the refund process fails on international credit cards.
+Alex: That sounds serious. We can't release with that. We are deciding right now to block the release until the refund bug is fixed.
+David: I can look into that. I'll debug the refund issue by tomorrow morning.
+Rachel: Thanks. Once you push a fix, I'll re-run the test suite. 
+Alex: Good. Any other risks?
+Rachel: Just that the test environment is running out of storage space. We might need to clear old logs soon.
+Alex: Mike, please look into the storage space issue when you have a moment.
+Mike: Will do. I'll clear the logs by end of day.
+Alex: Great. Let's get to work.
