@@ -2,8 +2,9 @@ import { MeetingResponse, EnrichedTask, DashboardStats, MeetingRecord } from '..
 
 const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
-// Prefer explicit environment variable, otherwise relative /api (proxied via vercel.json) or direct Render backend
+// Prefer bound service URL (functions/SSR) or explicit env var, otherwise relative /api (routed via Vercel services)
 export const API_BASE = 
+  (typeof process !== 'undefined' && process.env?.BACKEND_URL ? `${process.env.BACKEND_URL}/api` : null) ||
   (import.meta.env?.VITE_API_URL as string) || 
   (isLocal ? 'http://127.0.0.1:8000/api' : '/api');
 
