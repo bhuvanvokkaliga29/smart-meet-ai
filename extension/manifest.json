@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "SmartMeet AI — Live Google Meet Transcription",
+  "version": "2.1.0",
+  "description": "Captures live Google Meet captions from all participants and sends them to SmartMeet AI multi-agent platform for real-time action item extraction.",
+  "permissions": [
+    "activeTab",
+    "tabCapture",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*",
+    "https://*.zoom.us/*",
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:3000/*",
+    "http://localhost:3000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "SmartMeet AI — Google Meet Capture"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

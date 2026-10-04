@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #faf9f6;
+  color: #171717;
+  width: 340px;
+}
+
+.popup-container {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.version {
+  font-size: 10px;
+  background: #171717;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  border: 1px solid #e4e2d9;
+  border-radius: 100px;
+  padding: 8px 14px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #a0a0a0;
+  transition: all 0.3s ease;
+}
+
+.status-dot.active {
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.15); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555555;
+}
+
+.tab-info {
+  font-size: 12px;
+  color: #555555;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border: 1px solid #e4e2d9;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.caption-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: #171717;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #eef7ee;
+  border: 1px solid #bbdfbb;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.instructions {
+  font-size: 12px;
+  color: #555555;
+  margin-bottom: 14px;
+  padding: 8px 10px;
+  background: #fffce8;
+  border: 1px solid #e8e0a0;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-primary {
+  background: #171717;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #333333;
+}
+
+.btn-stop {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-stop:hover {
+  background: #b91c1c;
+}
+
+.footer {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.footer a {
+  color: #555555;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: #171717;
+}
