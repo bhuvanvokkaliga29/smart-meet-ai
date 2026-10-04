@@ -1,14 +1,12 @@
 @echo off
 echo ========================================================
-echo Pushing SmartMeet AI v2 to GitHub
+echo Pushing Fresh Hackathon Submission to GitHub
 echo ========================================================
 
-git add .
-git commit -m "feat: vercel deployment configuration, comprehensive enterprise architecture diagrams, and resilient demo pipeline"
-git push origin main
+git push -u origin main --force
 
 echo ========================================================
-echo Done! Code is pushed to GitHub.
-echo Connect your repo to Vercel at https://vercel.com/new
+echo Done! Clean, recent hackathon code is live on GitHub!
+echo Deploy to Vercel in 1 click at https://vercel.com/new
 echo ========================================================
 pause
