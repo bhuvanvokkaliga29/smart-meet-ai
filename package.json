@@ -1,0 +1,27 @@
+{
+  "name": "smartmeet-ai",
+  "version": "2.0.0",
+  "description": "SmartMeet AI - Multi-Agent Meeting Intelligence & Autonomous Execution Engine",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "test": "npm --prefix frontend run test"
+  },
+  "keywords": [
+    "ai",
+    "multi-agent",
+    "meeting-intelligence",
+    "gemini",
+    "react",
+    "fastapi",
+    "vite",
+    "vercel"
+  ],
+  "author": "SmartMeet AI Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
